@@ -37,9 +37,39 @@ Route::get('/', function()
 	return View::make('home.index');
 });
 
-Route::get('/login', function()
-{
-	echo("login");
+Route::get('/login', function() {
+	return View::make('auth.login');
+});
+
+Route::post('login', function() {
+	 // get POST data
+	$userdata = array(
+		'username' => Input::get('username'),
+		'password' => Input::get('password')
+	);
+	if ( Auth::attempt($userdata) )
+	{
+		
+		if(Auth::user()->active)
+		{		 
+			// we are now logged in, go to home
+			return Redirect::to('home');
+		}
+		else
+		{
+			return Redirect::to('login')
+				->with('user_inactive', true);
+		}
+	}
+	else
+	{
+		// auth failure! lets go back to the login
+		return Redirect::to('login')
+			->with('login_errors', true);
+		// pass any error notification you want
+		// i like to do it this way :)
+	}
+
 });
 
 
