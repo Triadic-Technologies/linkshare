@@ -69,10 +69,10 @@ return array(
 
 		'mysql' => array(
 			'driver'   => 'mysql',
-			'host'     => '127.0.0.1',
-			'database' => 'linkshare',
-			'username' => 'root',
-			'password' => 'password',
+			'host'     => 'localhost',
+			'database' => 'seceda_linkshare',
+			'username' => 'seceda_root',
+			'password' => 'v^pNSi6(ADwv',
 			'charset'  => 'utf8',
 			'prefix'   => '',
 		),

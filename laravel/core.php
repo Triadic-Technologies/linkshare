@@ -131,7 +131,7 @@ Autoloader::namespaces(array(
 |
 */
 
-if (magic_quotes())
+if (false and magic_quotes())
 {
 	$magics = array(&$_GET, &$_POST, &$_COOKIE, &$_REQUEST);
 
